@@ -2,6 +2,8 @@
 *Author by Nikos Athanasakis
 *----------------------------*/
 
+--Update date 02/09/2022
+
 -->Variable Definition 
 DECLARE @fileName VARCHAR(90);
 DECLARE @db_name VARCHAR(20);

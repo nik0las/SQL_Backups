@@ -9,9 +9,9 @@ DECLARE @fileName VARCHAR(90);
 DECLARE @db_name VARCHAR(20);
 DECLARE @fileDate VARCHAR(20);
 
--->¬·ÊÔıÏÂ ‰È·‰ÒÔÏÁ ·Ò˜ÂÈÔı Í ÔÌÔÏ· ‚·ÛÁÚ
+-->√Ç√°√¶√Ø√µ√¨√• √§√©√°√§√±√Ø√¨√ß √°√±√∑√•√©√Ø√µ √™ √Ø√≠√Ø√¨√° √¢√°√≥√ß√≤
 SET @fileName = N'E:\PYLON_BACKUP\'; -- change to the relevant path
-SET @db_name = N'PLN_AMANAKI';     -- change to the relevant database name
+SET @db_name = N'DATABASE_NAME';     -- change to the relevant database name
 --SET @fileDate = CONVERT(VARCHAR(20), GETDATE(),112); -- Only DATE
 
 SET @fileDate = CONVERT(NVARCHAR(20),GETDATE(),112) + '_' + REPLACE(CONVERT(NVARCHAR(20),GETDATE(),108),N':',N'')
@@ -25,11 +25,11 @@ BACKUP DATABASE @db_name TO DISK = @fileName WITH NOFORMAT,NOINIT, COMPRESSION ,
 DECLARE @KeepLastDays VARCHAR(50)
 DECLARE @LASTDAYS FLOAT
 
-SET @LASTDAYS = -10 /* ‘¡ 10 ‘≈À≈’‘¡…¡ BACKUP FILES*/
+SET @LASTDAYS = -10 /* √î√Å 10 √î√Ö√ã√Ö√ï√î√Å√â√Å BACKUP FILES*/
 SELECT @KeepLastDays = CAST(DATEADD(d, @LASTDAYS, GETDATE()) AS VARCHAR)
 
 DECLARE @PathName VARCHAR(90);
-SET @PathName = N'E:\PYLON_BACKUP\';
+SET @PathName = N'E:\FOLDER_BACKUP\';
 
 EXECUTE master.dbo.xp_delete_file 0, @PathName ,N'bak', @KeepLastDays,1
 
